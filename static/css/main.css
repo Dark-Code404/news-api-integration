@@ -1,0 +1,250 @@
+/* General body styling */
+body {
+    font-family: 'Roboto', Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: #f9fafb;
+    color: #333;
+    line-height: 1.6;
+}
+
+/* Header Styling */
+header {
+    background-color: #080808;  
+    color: #f5f1f1;
+    padding: 20px 0;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+.header-container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 20px;
+}
+
+.logo {
+    font-size: 2rem;
+    font-weight: 700;
+    letter-spacing: 1px;
+}
+
+.nav-links {
+    list-style: none;
+    display: flex;
+    gap: 20px;
+}
+
+.nav-links li {
+    margin: 0;
+}
+
+.nav-links a {
+    text-decoration: none;
+    color: #ffffff;
+    font-size: 1.1rem;
+    font-weight: 600;
+    transition: color 0.3s ease;
+}
+
+.nav-links a:hover {
+    color: #0056b3;
+}
+
+/* News Container */
+.news-container {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 25px;
+    padding: 30px;
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+/* Category Links */
+.categories {
+    display: flex;
+    justify-content: center;
+    gap: 25px;
+    margin-bottom: 25px;
+    padding-bottom: 15px;
+    border-bottom: 2px solid #e0e0e0;
+}
+
+.category-link {
+    text-decoration: none;
+    font-size: 1.1rem;
+    font-weight: 600;
+    color: #007bff;
+    transition: color 0.3s ease, transform 0.3s ease;
+    position: relative;
+}
+
+.category-link::after {
+    content: '';
+    position: absolute;
+    width: 100%;
+    transform: scaleX(0);
+    height: 2px;
+    bottom: 0;
+    left: 0;
+    background-color: #007bff;
+    transform-origin: bottom right;
+    transition: transform 0.25s ease-out;
+}
+
+.category-link:hover::after {
+    transform: scaleX(1);
+    transform-origin: bottom left;
+}
+
+.category-link:hover {
+    color: #0056b3;
+    transform: scale(1.05);
+}
+
+/* News Card Styling */
+.news-card {
+    background-color: #ffffff;
+    border-radius: 12px;
+    width: 350px;
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.12);
+    overflow: hidden;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    position: relative;
+}
+
+.news-card:hover {
+    transform: translateY(-8px);
+    box-shadow: 0 15px 30px rgba(0, 0, 0, 0.15);
+}
+
+/* Image Styling */
+.news-card img {
+    width: 100%;
+    height: 220px;
+    object-fit: cover;
+    border-bottom: 2px solid #f1f4f8;
+    transition: transform 0.3s ease;
+}
+
+.news-card:hover img {
+    transform: scale(1.1);
+}
+
+/* News Content */
+.news-content {
+    padding: 20px;
+    color: #555;
+}
+
+.news-content h3 {
+    font-size: 1.3rem;
+    font-weight: 600;
+    color: #222;
+    margin-bottom: 15px;
+    transition: color 0.3s ease;
+}
+
+.news-content h3:hover {
+    color: #007bff;
+}
+
+.news-content p {
+    margin: 10px 0;
+    font-size: 1rem;
+    color: #666;
+}
+
+.news-content p strong {
+    font-weight: bold;
+    color: #333;
+}
+
+.news-content a {
+    display: inline-block;
+    margin-top: 15px;
+    font-size: 1rem;
+    font-weight: 600;
+    color: #ffffff;
+    background-color: #007bff;
+    padding: 10px 20px;
+    border-radius: 5px;
+    text-decoration: none;
+    transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+.news-content a:hover {
+    background-color: #0056b3;
+    color: #ffffff;
+}
+
+/* Search Form Styling */
+form {
+    display: flex;
+    justify-content: center;
+    gap: 10px;
+    margin-bottom: 25px;
+}
+
+form input[type="text"] {
+    padding: 10px;
+    font-size: 1rem;
+    border-radius: 5px;
+    border: 2px solid #ccc;
+    width: 250px;
+    transition: border-color 0.3s ease;
+}
+
+form input[type="text"]:focus {
+    border-color: #007bff;
+    outline: none;
+}
+
+form button {
+    padding: 10px 20px;
+    background-color: #007bff;
+    color: #ffffff;
+    font-size: 1rem;
+    border-radius: 5px;
+    border: none;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+form button:hover {
+    background-color: #0056b3;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+    .news-container {
+        gap: 20px;
+    }
+
+    .news-card {
+        width: 100%;
+    }
+
+    .categories {
+        flex-wrap: wrap;
+        justify-content: center;
+    }
+
+    .category-link {
+        margin: 5px;
+    }
+
+    form {
+        flex-direction: column;
+        align-items: center;
+    }
+
+    form input[type="text"] {
+        width: 100%;
+        margin-bottom: 15px;
+    }
+}

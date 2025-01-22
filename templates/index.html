@@ -1,0 +1,51 @@
+{% extends "base.html" %}
+{% block title %}
+News
+{% endblock title %}
+
+{% block content %}
+
+<div class="news-container">
+    <h2>Search by Country</h2>
+    <form action="" method="get">
+        <input type="text" name="q" placeholder="Enter country code (e.g., us)">
+        <button type="submit">Search</button>
+    </form>
+
+    <div class="categories">
+        <a href="{% url 'home' %}?category=general" class="category-link">All</a>
+        <a href="{% url 'home' %}?category=business" class="category-link">Business</a>
+        <a href="{% url 'home' %}?category=entertainment" class="category-link">Entertainment</a>
+         
+        <a href="{% url 'home' %}?category=health" class="category-link">Health</a>
+        <a href="{% url 'home' %}?category=science" class="category-link">Science</a>
+        <a href="{% url 'home' %}?category=sports" class="category-link">Sports</a>
+        <a href="{% url 'home' %}?category=technology" class="category-link">Technology</a>
+    </div>
+
+    {% if category == 'general' %}
+    <h3>Showing results for: All</h3>
+
+    {% else %}
+    <h3>Showing results for: {{ category|default:"All Categories" }}</h3>
+    {% endif %}
+
+    {% for art in articles %}
+        {% if art.description and art.urlToImage and art.author and art.title %}
+            <div class="news-card">
+                <img src="{{ art.urlToImage }}" alt="Article Image">
+                <div class="news-content">
+                    <h3>{{ art.title }}</h3>
+                    <p><strong>Author:</strong> {{ art.author }}</p>
+                    <p><strong>Published:</strong> {{ art.date|default:"Unknown Date" }}</p>
+                    <p><strong>Source:</strong> {{ art.source.name|default:"Unknown Source" }}</p>
+                    <p><strong>Description:</strong> {{ art.description }}</p>
+                    <p><strong>Content:</strong> {{ art.content|default:"Content not available"|slice:":200" }}...</p>
+                    <a href="{{ art.url }}" target="_blank">Read more</a>
+                </div>
+            </div>
+        {% endif %}
+    {% endfor %}
+</div>
+
+{% endblock content %}

@@ -1,0 +1,16 @@
+# Compiled Python files
+news/__pycache__/
+news/migrations/__pycache__/
+
+# Environment variables
+.env
+
+# SQLite database
+db.sqlite3
+
+# Static files (if you generate them)
+ 
+
+# Other temporary files
+*.log
+*.tmp
